@@ -1,0 +1,2 @@
+caption always
+caption string "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %u"
