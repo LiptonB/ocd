@@ -1,0 +1,17 @@
+#!/bin/bash
+
+cd `dirname $0`
+SCRIPT_DIR=`pwd`
+FILES_DIR="$SCRIPT_DIR/files"
+BACKUP_DIR="$SCRIPT_DIR/backup"
+
+find $FILES_DIR -type f |
+while read file; do
+    fname=${file#$FILES_DIR/}
+    dname=`dirname $fname`
+    if [[ -f "$HOME/$fname" ]]; then
+        mkdir -p "$BACKUP_DIR/$dname"
+        mv "$HOME/$fname" "$BACKUP_DIR/$fname"
+    fi
+    ln -s "$FILES_DIR/$fname" "$HOME/$fname"
+done
