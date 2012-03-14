@@ -53,6 +53,7 @@ xterm*|rxvt*)
 *)
     ;;
 esac
+PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 
 export VISUAL=vim
 
