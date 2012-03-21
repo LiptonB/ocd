@@ -27,6 +27,7 @@ set showcmd
 " use indents of 4 spaces, and have them copied down lines:
 set shiftwidth=4
 set tabstop=4
+set softtabstop=4
 set shiftround
 set expandtab
 set autoindent
@@ -62,6 +63,8 @@ autocmd FileType html,css set noexpandtab tabstop=2
 " needed, and have indentation at 8 chars to be sure that all indents are tabs
 " (despite the mappings later):
 autocmd FileType make set noexpandtab shiftwidth=8
+
+autocmd FileType rst set textwidth=80 cc=+1
 
 " make searches case-insensitive, unless they contain upper-case letters:
 set ignorecase
