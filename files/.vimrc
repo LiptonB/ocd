@@ -1,6 +1,9 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " .vimrc file
 "
+call pathogen#infect()
+
+"
 " so I can paste with the mouse (hit F2 to toggle)
 set pastetoggle=<F2>
 "
@@ -36,6 +39,7 @@ set autoindent
 filetype on
 filetype indent on
 filetype plugin on
+syntax on
 "
 " in human-language files, automatically format everything at 72 chars:
 autocmd FileType mail,human set formatoptions+=t textwidth=72
