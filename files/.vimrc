@@ -2,7 +2,7 @@
 " .vimrc file
 "
 call pathogen#infect()
-
+let mapleader = ","
 "
 " so I can paste with the mouse (hit F2 to toggle)
 set pastetoggle=<F2>
