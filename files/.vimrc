@@ -2,6 +2,7 @@
 " .vimrc file
 "
 call pathogen#infect()
+call pathogen#helptags()
 let mapleader = ","
 "
 " so I can paste with the mouse (hit F2 to toggle)
@@ -83,7 +84,8 @@ nnoremap <S-F6> <C-W>W
 
 " python run with F9
 map <f9> :w<CR>:!python %<CR>
-"
-"
-" end .vimrc
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" nnoremap <Leader>t :CommandT<CR>
+nnoremap <Leader>e :tabnew<CR>
+nnoremap <Leader>n :tabnext<CR>
+nnoremap <Leader>p :tabp<CR>
