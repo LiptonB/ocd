@@ -28,3 +28,6 @@
     dh1 = diff HEAD~1
 [merge]
     tool = vimdiff
+[user]
+	name = Ben Lipton
+	email = ben.lipton@gmail.com
