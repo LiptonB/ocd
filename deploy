@@ -14,7 +14,9 @@ while read file; do
         mkdir -p "$BACKUP_DIR/$dname"
         mv "$HOME/$fname" "$BACKUP_DIR/$fname"
     fi
-    ln -s "$FILES_DIR/$fname" "$HOME/$fname"
+    if [[ ! -e "$HOME/$fname" ]]; then
+        ln -s "$FILES_DIR/$fname" "$HOME/$fname"
+    fi
 done
 
 echo "done"
