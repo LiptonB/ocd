@@ -15,17 +15,25 @@ set pastetoggle=<F2>
 "
 " reasonable backspace
 set backspace=2
-" no autowrap of lines
-set wrapmargin=0
 "
 " have fifty lines of command-line (etc) history:
 set history=50
-"
-" have command-line completion <Tab> (for filenames, help topics, option names)
-" first list the available options and complete the longest common part, then
-" have further <Tab>s cycle through the possibilities:
-set wildmode=list:longest,full
-"
+
+" bunch of useful options from http://stevelosh.com/blog/2010/09/coming-home-to-vim
+set encoding=utf-8
+set scrolloff=3
+set hidden
+set wildmenu
+set wildmode=list:longest
+set visualbell
+set ttyfast
+set ruler
+set laststatus=2
+if version >= 730
+    set relativenumber
+    set undofile
+endif
+
 " display the current mode and partially-typed commands in the status line:
 set showmode
 set showcmd
