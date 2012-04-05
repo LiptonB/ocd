@@ -89,3 +89,5 @@ map <f9> :w<CR>:!python %<CR>
 nnoremap <Leader>e :tabnew<CR>
 nnoremap <Leader>n :tabnext<CR>
 nnoremap <Leader>p :tabp<CR>
+set guifont=Inconsolata\ Medium\ 10
+
