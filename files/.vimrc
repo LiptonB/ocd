@@ -13,6 +13,8 @@ set pastetoggle=<F2>
 " backup file name extension
 "set backupext=.foo
 "
+" reasonable backspace
+set backspace=2
 " no autowrap of lines
 set wrapmargin=0
 "
@@ -69,7 +71,7 @@ autocmd FileType html,css set noexpandtab tabstop=2
 " (despite the mappings later):
 autocmd FileType make set noexpandtab shiftwidth=8
 
-autocmd FileType rst set textwidth=80 cc=+1
+autocmd FileType rst,tex set textwidth=80 cc=+1
 
 " make searches case-insensitive, unless they contain upper-case letters:
 set ignorecase
