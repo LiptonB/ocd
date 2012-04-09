@@ -13,17 +13,27 @@ set pastetoggle=<F2>
 " backup file name extension
 "set backupext=.foo
 "
-" no autowrap of lines
-set wrapmargin=0
+" reasonable backspace
+set backspace=2
 "
 " have fifty lines of command-line (etc) history:
 set history=50
-"
-" have command-line completion <Tab> (for filenames, help topics, option names)
-" first list the available options and complete the longest common part, then
-" have further <Tab>s cycle through the possibilities:
-set wildmode=list:longest,full
-"
+
+" bunch of useful options from http://stevelosh.com/blog/2010/09/coming-home-to-vim
+set encoding=utf-8
+set scrolloff=3
+set hidden
+set wildmenu
+set wildmode=list:longest
+set visualbell
+set ttyfast
+set ruler
+set laststatus=2
+if version >= 730
+    set relativenumber
+    set undofile
+endif
+
 " display the current mode and partially-typed commands in the status line:
 set showmode
 set showcmd
@@ -69,7 +79,7 @@ autocmd FileType html,css set noexpandtab tabstop=2
 " (despite the mappings later):
 autocmd FileType make set noexpandtab shiftwidth=8
 
-autocmd FileType rst set textwidth=80 cc=+1
+autocmd FileType rst,tex set textwidth=80 cc=+1
 
 " make searches case-insensitive, unless they contain upper-case letters:
 set ignorecase
@@ -89,3 +99,5 @@ map <f9> :w<CR>:!python %<CR>
 nnoremap <Leader>e :tabnew<CR>
 nnoremap <Leader>n :tabnext<CR>
 nnoremap <Leader>p :tabp<CR>
+set guifont=Inconsolata\ Medium\ 10
+
