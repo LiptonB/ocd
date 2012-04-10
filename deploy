@@ -5,6 +5,11 @@ SCRIPT_DIR=`pwd`
 FILES_DIR="$SCRIPT_DIR/files"
 BACKUP_DIR="$SCRIPT_DIR/backup"
 
+if [[ -e $BACKUP_DIR ]]; then
+   echo "Backup directory already exists. Please remove."
+   exit 1
+fi
+
 echo -n "Linking Files..."
 ls -A "$FILES_DIR" |
 while read file; do
