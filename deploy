@@ -16,7 +16,7 @@ while read file; do
     fname=`basename $file`
     # Check if there's already a file of that name, not pointing at the repository
     if [[ -e "$HOME/$fname" && ! -L "$HOME/$fname" ]]; then
-        mkdir -p "$BACKUP_DIR/$dname"
+        mkdir -p "$BACKUP_DIR"
         mv "$HOME/$fname" "$BACKUP_DIR/$fname"
     fi
     if [[ ! -e "$HOME/$fname" ]]; then
