@@ -62,3 +62,7 @@ PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 export VISUAL=vim
 
 # ALIASES
+
+if [ -r ~/.bashrc.local ]; then
+    source ~/.bashrc.local
+fi
