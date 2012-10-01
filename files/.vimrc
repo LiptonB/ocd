@@ -39,9 +39,9 @@ set showmode
 set showcmd
 "
 " use indents of 4 spaces, and have them copied down lines:
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
 set shiftround
 set expandtab
 set autoindent
