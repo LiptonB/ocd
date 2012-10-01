@@ -26,7 +26,7 @@ files=$(find . -type f | egrep -v  "$IGNORE_RE")
 dirs=$(find . -type d | egrep -v  "$IGNORE_RE")
 
 for dir in $dirs; do
-  if [ ! -d $HOME/$dir ]; then
+  if [ -e $HOME/$dir -a ! -d $HOME/$dir ]; then
     archive $HOME/$dir
   fi
   mkdir -p $HOME/$dir
