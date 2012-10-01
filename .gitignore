@@ -1,4 +1,1 @@
-.*.swp
-
-/files/.ssh/id_rsa*
-/files/.ssh/known_hosts
+/backup.tar.gz
