@@ -12,7 +12,7 @@ mkdir $archive_dir/backup
 
 archive() {
   mkdir -p `dirname $archive_dir/backup/$1`
-  cp -Lrp $1 $archive_dir/backup/$1
+  cp -Lp $1 $archive_dir/backup/$1
   rm $1
 }
 
@@ -26,7 +26,7 @@ files=$(find . -type f | egrep -v  "$IGNORE_RE")
 dirs=$(find . -type d | egrep -v  "$IGNORE_RE")
 
 for dir in $dirs; do
-  if [ -f $HOME/$dir -o -h $HOME/$dir ]; then
+  if [ ! -d $HOME/$dir ]; then
     archive $HOME/$dir
   fi
   mkdir -p $HOME/$dir
