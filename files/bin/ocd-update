@@ -2,32 +2,49 @@
 
 IGNORE_RE="^\./(README$|\.git)"
 
-# Set OCDDIRS in $HOME/.bashrc_$(dnsdomainname) for your local setup.
+# Set OCDDIR in $HOME/.bashrc_$(dnsdomainname) for your local setup.
+
 : ${OCDDIR:="$HOME/.ocd"}
 
-for ocddir in $OCDDIR; do
+archive_dir=`mktemp -d`
 
-  echo -n "$ocddir: "
-  if [ ! -d "$ocddir" ]; then
-    echo "doesn't exist!" && continue
+archive() {
+  if [ -d $1 ]; then
+    echo "Should not be archiving directory: $1"
+    exit 1
+  else
+    cp --preserve=mode --dereference $1 $archive_dir/$1
   fi
-  cd $ocddir
+  rm $1
+}
 
-  files=$(find . -type f | egrep -v  "$IGNORE_RE")
-  dirs=$(find . -type d | egrep -v  "$IGNORE_RE")
+echo -n "$OCDDIR: "
+if [ ! -d "$OCDDIR" ]; then
+  echo "doesn't exist!" && continue
+fi
+cd $OCDDIR/files
 
-  for dir in $dirs; do
-    mkdir -p $HOME/$dir
-  done
+files=$(find . -type f | egrep -v  "$IGNORE_RE")
+dirs=$(find . -type d | egrep -v  "$IGNORE_RE")
 
-  for file in $files; do
-    echo -n .
-    src="$file"
-    dst="$HOME/$file"
-    if [ -f $dst ]; then
-      rm -f $dst
-    fi
-    cp --preserve=mode $file $dst
-  done
-  echo
+for dir in $dirs; do
+  if [ -f $HOME/$dir -o -h $HOME/$dir ]; then
+    archive($HOME/$dir)
+  fi
+  mkdir -p $HOME/$dir
 done
+
+for file in $files; do
+  echo -n .
+  src="$file"
+  dst="$HOME/$file"
+  if [ -e $dst ]; then
+    archive($dst)
+    rm -f $dst
+  fi
+  cp --preserve=mode $file $dst
+  done
+echo
+
+tar -czf $OCDDIR/backup.tar.gz $archive_dir
+rm -rf $archive_dir

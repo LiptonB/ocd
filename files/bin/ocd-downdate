@@ -3,7 +3,7 @@
 # Set OCDDIRS in $HOME/.bashrc_$(dnsdomainname) for your local setup.
 : ${OCDDIR:="$HOME/.ocd"}
 
-cd $OCDDIR
+cd $OCDDIR/files
 
 IGNORE_RE="^\./(README$|\.git)"
 FILES=$(find . -type f | egrep -v  "$IGNORE_RE")
