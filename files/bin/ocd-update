@@ -45,4 +45,4 @@ for file in $files; do
 echo
 
 tar -czf $OCDDIR/backup.tar.gz -C $archive_dir backup/
-#rm -rf $archive_dir
+rm -rf $archive_dir
