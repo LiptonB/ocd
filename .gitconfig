@@ -32,3 +32,5 @@
 [user]
 	name = Ben Lipton
 	email = ben.lipton@gmail.com
+[core]
+    excludesfile = ~/.gitexcludes

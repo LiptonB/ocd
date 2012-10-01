@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Set OCDDIRS in $HOME/.bashrc_$(dnsdomainname) for your local setup.
+: ${OCDDIR:="$HOME/.ocd"}
+
+cd $OCDDIR
+
+IGNORE_RE="^\./(README$|\.git)"
+FILES=$(find . -type f | egrep -v  "$IGNORE_RE")
+
+for file in $FILES;do
+  printf .
+  dst="$file"
+  src="$HOME/$file"
+  if [ -f $src ];then
+    chmod +w $dst
+    cp --preserve=mode $src $dst
+  fi
+done
+
+echo " done!\n\ngit status in `pwd`:\n\n"
+git status
