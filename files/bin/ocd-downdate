@@ -14,7 +14,7 @@ for file in $FILES;do
   src="$HOME/$file"
   if [ -f $src ];then
     chmod +w $dst
-    cp --preserve=mode $src $dst
+    cp -p $src $dst
   fi
 done
 

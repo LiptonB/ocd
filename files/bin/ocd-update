@@ -9,12 +9,8 @@ IGNORE_RE="^\./(README$|\.git)"
 archive_dir=`mktemp -d`
 
 archive() {
-  if [ -d $1 ]; then
-    echo "Should not be archiving directory: $1"
-    exit 1
-  else
-    cp --preserve=mode --dereference $1 $archive_dir/$1
-  fi
+  mkdir -p `dirname $archive_dir/$1`
+  cp -Lrp $1 $archive_dir/$1
   rm $1
 }
 
@@ -29,7 +25,7 @@ dirs=$(find . -type d | egrep -v  "$IGNORE_RE")
 
 for dir in $dirs; do
   if [ -f $HOME/$dir -o -h $HOME/$dir ]; then
-    archive($HOME/$dir)
+    archive $HOME/$dir
   fi
   mkdir -p $HOME/$dir
 done
@@ -39,12 +35,12 @@ for file in $files; do
   src="$file"
   dst="$HOME/$file"
   if [ -e $dst ]; then
-    archive($dst)
+    archive $dst
     rm -f $dst
   fi
-  cp --preserve=mode $file $dst
+  cp -p $file $dst
   done
 echo
 
-tar -czf $OCDDIR/backup.tar.gz $archive_dir
+tar -czf $OCDDIR/backup.tar.gz -C $archive_dir
 rm -rf $archive_dir
