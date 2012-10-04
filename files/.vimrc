@@ -30,7 +30,7 @@ set history=50
 
 " bunch of useful options from http://stevelosh.com/blog/2010/09/coming-home-to-vim
 set encoding=utf-8
-set scrolloff=200
+set scrolloff=5
 set hidden
 set title
 set wildmenu
@@ -124,6 +124,9 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
+
+nnoremap j gj
+nnoremap k gk
 
 " nnoremap <Leader>t :CommandT<CR>
 nnoremap <Leader>e :tabnew<CR>
