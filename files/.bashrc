@@ -61,6 +61,8 @@ if [ "$USER" = "root" ]; then
 fi
 alias rc="source $HOME/.bashrc"
 
+alias s='ssh -l root'
+
 SOURCE_FILES="
 /etc/bash_completion
 $HOME/.agentrc
