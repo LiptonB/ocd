@@ -34,3 +34,5 @@
 	email = ben.lipton@gmail.com
 [core]
     excludesfile = ~/.gitexcludes
+[push]
+	default = simple
