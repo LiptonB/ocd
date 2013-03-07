@@ -5,7 +5,7 @@
 
 cd $OCDDIR/files
 
-IGNORE_RE="^\./(README$|\.git)"
+IGNORE_RE="^\./README$"
 FILES=$(find . -type f | egrep -v  "$IGNORE_RE")
 
 for file in $FILES;do
