@@ -35,4 +35,4 @@
 [core]
     excludesfile = ~/.gitexcludes
 [push]
-	default = simple
+	default = upstream
