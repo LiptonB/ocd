@@ -36,3 +36,5 @@
     excludesfile = ~/.gitexcludes
 [push]
 	default = upstream
+[rerere]
+	enabled = true
