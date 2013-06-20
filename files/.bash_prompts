@@ -11,10 +11,14 @@
 # Brown       0;33     Yellow        1;33
 # Light Gray  0;37     White         1;37
 
-C0="\[\e[0m\]"
-C1="\[\e[0;32m\]"
-C2="\[\e[1;34m\]"
-C3="\[\e[0;31m\]"
+CLEAR="\[\e[0m\]"
+GREEN="\[\e[0;32m\]"
+BLUE="\[\e[1;34m\]"
+RED="\[\e[0;31m\]"
 
-export PS1="$C1\u$C2@\h$C3 [ \w ]\n$C1\\\$$C0 "
-export PS2="$C1>$C0 "
+STATUS="\`if [ \$? == 0 ]; then echo -e '$GREEN'; else echo -e '$RED'; fi\`"
+
+PS1="${GREEN}\u${BLUE}@\h${RED} [ \w ]\n"
+PS1="${PS1}${STATUS}\\\$${CLEAR} "
+export PS1
+export PS2="${GREEN}>${CLEAR} "
