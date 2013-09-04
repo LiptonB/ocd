@@ -137,6 +137,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Screenshot
     , ((0, xK_Print), spawn "gnome-screenshot --interactive")
+
+    -- Volume control
+    , ((0, 0x1008ff11), spawn "amixer set Master 2-")
+    , ((0, 0x1008ff13), spawn "amixer set Master 2+")
+    , ((0, 0x1008ff12), spawn "amixer set Master toggle")
     ]
     ++
 
