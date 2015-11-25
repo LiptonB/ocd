@@ -1,8 +1,8 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " .vimrc file
 "
-call pathogen#infect()
-call pathogen#helptags()
+silent! call pathogen#infect()
+silent! call pathogen#helptags()
 let mapleader = ","
 
 " ,v opens .vimrc
