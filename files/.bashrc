@@ -56,7 +56,7 @@ export VISUAL=vim
 alias vim='vim -p'
 alias gvim='gvim -p'
 
-if [ "$USER" = "root" ]; then
+if [ "$USER" = "root" && -n "$SUDO_USER" ]; then
     alias vim="vim -p -u /home/$SUDO_USER/.vimrc"
 fi
 alias rc="source $HOME/.bashrc"
