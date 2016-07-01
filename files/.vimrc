@@ -1,8 +1,16 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " .vimrc file
 "
-silent! call pathogen#infect()
-silent! call pathogen#helptags()
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'wincent/command-t'
+Plugin 'Valloric/YouCompleteMe'
+call vundle#end()
+
 let mapleader = ","
 
 " ,v opens .vimrc
