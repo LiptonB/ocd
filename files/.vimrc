@@ -88,6 +88,8 @@ set incsearch
 set completeopt=menuone,longest,preview
 set pumheight=6  " Keep a small completion window
 
+set norelativenumber
+
 " Displays tabs with :set list & displays when a line runs off-screen
 set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
 "set list
