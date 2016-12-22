@@ -56,7 +56,6 @@ set vb
 set t_vb=  " Disable all bells. No ringing or flashing.
 set confirm  " Y-N-C prompt if closing with unsaved changes.
 if version >= 730
-    set relativenumber
     set undofile
 endif
 
@@ -87,8 +86,6 @@ set incsearch
 " Insert completion. Don't select first item, follow typing in autocomplete.
 set completeopt=menuone,longest,preview
 set pumheight=6  " Keep a small completion window
-
-set norelativenumber
 
 " Displays tabs with :set list & displays when a line runs off-screen
 set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
