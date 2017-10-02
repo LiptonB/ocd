@@ -24,7 +24,7 @@ call vundle#end()
 
 if vinstall == 1
 	:PluginInstall
-fi
+endif
 
 let mapleader = ","
 
