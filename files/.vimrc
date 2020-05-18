@@ -28,6 +28,9 @@ endif
 
 let mapleader = ","
 
+let g:CommandTTraverseSCM = "pwd"
+let g:CommandTInputDebounce = 1
+
 " ,v opens .vimrc
 map <leader>v :tabe ~/.vimrc<CR>
 " ,V reloads .vimrc.
@@ -59,7 +62,7 @@ set title
 set wildmenu
 set wildmode=list:longest
 " Ignore these files when completing
-set wildignore+=*.o,*.obj,.git,*.pyc
+set wildignore+=*.o,*.obj,.git,*.pyc,*/node_modules
 
 set ttyfast
 set ruler
