@@ -14,6 +14,8 @@ export HISTCONTROL=ignoreboth
 export HISTSIZE=1000
 export HISTFILESIZE=2000
 
+export PROMPT_COMMAND='history -a'
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -33,6 +35,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep="grep --color=auto $GREP_OPTS"
     alias fgrep="fgrep --color=auto $GREP_OPTS"
     alias egrep="egrep --color=auto $GREP_OPTS"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    export CLICOLOR=1
+    export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
 else
     alias grep="grep $GREP_OPTS"
     alias fgrep="fgrep $GREP_OPTS"
@@ -55,6 +60,7 @@ xterm*|rxvt*)
 esac
 export PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin:~/bin"
 export OCDDIR="$HOME/.ocd"
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 export VISUAL=vim
 
@@ -68,14 +74,15 @@ fi
 alias rc="source $HOME/.bashrc"
 
 alias s='ssh -l root'
+alias fixvol='osascript -e "set volume input volume 50"'
 
 SOURCE_FILES="
 /etc/bash_completion
 $HOME/.agentrc
 $HOME/.bash_prompts
 $HOME/.bashrc_$(hostname -f)
-$HOME/.bashrc_$(dnsdomainname)
 "
 for file in $SOURCE_FILES; do
   test -f $file && . $file || true
 done
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
