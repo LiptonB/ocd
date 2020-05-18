@@ -4,6 +4,16 @@
 set nocompatible
 filetype off
 
+let vinstall=0
+let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
+if !filereadable(vundle_readme)
+    echo "Installing Vundle.."
+    echo ""
+    silent !mkdir -p ~/.vim/bundle
+    silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
+    let vinstall=1
+endif
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
@@ -11,6 +21,10 @@ Plugin 'wincent/command-t'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'hynek/vim-python-pep8-indent'
 call vundle#end()
+
+if vinstall == 1
+	:PluginInstall
+fi
 
 let mapleader = ","
 
@@ -140,6 +154,8 @@ nnoremap k gk
 nnoremap <Leader>e :tabnew<CR>
 nnoremap <Leader>n :tabnext<CR>
 nnoremap <Leader>p :tabp<CR>
+nnoremap <Leader>. :tabnext<CR>
+nnoremap <Leader>m :tabp<CR>
 set guifont=Inconsolata\ Medium\ 10
 
 " Toggle line numbers.
