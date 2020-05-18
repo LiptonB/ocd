@@ -14,12 +14,19 @@ if !filereadable(vundle_readme)
     let vinstall=1
 endif
 
+let g:CommandTMaxFiles = 200000
+let g:CommandTTraverseSCM = "pwd"
+let g:CommandTInputDebounce = 2
+let g:rustfmt_autosave = 1
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'wincent/command-t'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'rust-lang/rust.vim'
+Plugin 'fatih/vim-go'
 call vundle#end()
 
 if vinstall == 1
@@ -28,8 +35,6 @@ endif
 
 let mapleader = ","
 
-let g:CommandTTraverseSCM = "pwd"
-let g:CommandTInputDebounce = 1
 
 " ,v opens .vimrc
 map <leader>v :tabe ~/.vimrc<CR>
@@ -62,7 +67,7 @@ set title
 set wildmenu
 set wildmode=list:longest
 " Ignore these files when completing
-set wildignore+=*.o,*.obj,.git,*.pyc,*/node_modules
+set wildignore+=*.o,*.obj,.git,*.pyc,*/node_modules,*/build
 
 set ttyfast
 set ruler
