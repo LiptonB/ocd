@@ -58,7 +58,7 @@ xterm*|rxvt*)
 *)
     ;;
 esac
-export PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin:~/bin"
+export PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin:${HOME}/bin:${HOME}/.npm-global/bin:$HOME/.cargo/bin:"
 export OCDDIR="$HOME/.ocd"
 export BASH_SILENCE_DEPRECATION_WARNING=1
 

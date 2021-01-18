@@ -39,3 +39,5 @@
 	default = upstream
 [rerere]
 	enabled = true
+[pull]
+	rebase = false
